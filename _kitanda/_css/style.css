@@ -1,0 +1,57 @@
+h1{color: rgb(250, 9, 9);
+    font-size: 80px;
+    text-align: center;
+    width:auto;
+    margin: 50px;
+    padding: 10px;
+    background-color: rgba(249, 212, 35, 0.85);
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    h2{color: rgb(25, 78, 80);
+    text-align: center;
+    }
+    h3{color: rgb(255, 78, 255);
+    text-align: center;
+    }
+    h4{color: rgb(222, 200, 80);
+    text-align: center;
+    }
+    h5{color: rgb(100, 100, 100);
+    text-align: center;
+    }
+    h6{color: rgb(0, 180, 255);
+    text-align: center;
+    }
+    P{color: rgb(0, 0, 0);
+        font-size: 1.5em;
+        text-indent: 1.0em;
+        text-align: center;
+    }
+    
+    table{
+        margin-top: 10px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+    }
+    td{
+        border-style: solid;
+        border-color: rgb(122, 122, 122);
+    }
+    th{
+        background: #5146f1;
+    }
+    BODY {
+        background-repeat: repeat;
+        background-size:contain;
+        background-attachment: fixed;
+    }
+    img {
+        width: 350px;
+        height: 350px;
+        display: inline-block;
+        margin-left: 30px;
+        
+    }
+    
+   
