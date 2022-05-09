@@ -1,7 +1,5 @@
-Algoritmo "CalcularIMC"
-//Desenvolva um programa usando o  Visualg  para  calcular  o  índice  de massa
-//corpórea  (IMC)  de  um  paciente.  Serão  necessários  as  seguintes entradas
-//de dados:
+Algoritmo "Piscina"
+//
 Var
 nome:caracter
 ano_atual, ano_nascimento, estilo, idade:inteiro
@@ -21,36 +19,38 @@ leia(ano_atual)
 escreval("Informe codigo do estilo de Natação:")
 escreval("1 - Nado Livre")
 escreval("2 - Nado de Costas")
-escreval("1 - Nado Borboleta")
+escreval("3 - Nado Borboleta")
 leia(estilo)
 
-    := peso / (altura * altura)
+    idade:= ano_atual - ano_nascimento
+
+escreval(nome)
+escreval("Sua Idade atual é: ", idade)
     
-    se IMC < 18 entao
-       class:= "Magreza"
-       senao
-            se (IMC = 18) ou (IMC < 25) entao
-            class:= "Normal"
+    se (idade <=16)e (estilo =1) entao
+    escreval("Você deve ir para Picina 1")
+    senao
+            se (idade > 16) e (estilo =1) entao
+            escreval("Você deve ir para Picina 5")
             senao
-                se(IMC = 25) ou (IMC < 30) entao
-                class:= "Sobrepeso"
+                se (idade <= 21) e (estilo =2) entao
+                escreval("Você deve ir para Picina 2")
                 senao
-                    se (IMC = 30) ou (IMC < 35) entao
-                    class:= "Obesidade Grau I"
+                    se (idade > 21) e (estilo =2) entao
+                    escreval("Você deve ir para Picina 3")
                     senao
-                        se (IMC = 35) ou (IMC < 40) entao
-                        class:= "Obesidade Grau II"
-                        senao
-                            class:= "Obesidade Grau III (Obesidade Grave ou Mórbida)"
+                         se (idade <=  12) e (estilo =3) entao
+                         escreval("Você deve ir para Picina 4")
+                         senao
+                              se (idade >= 12) e (estilo =3) entao
+                              escreval("Você deve ir para Picina 6")
+                              senao
+                              escreval("Estilo Não encontrado")
+                              fimse
                         fimse
                     fimse
                 fimse
             fimse
     Fimse
-    
-    escreval("Olá ", nome, "!")
-    escreval("Seu IMC é: ", IMC:3:2)
-    escreval("E sua classificação é: ", class)
-
 
 Fimalgoritmo

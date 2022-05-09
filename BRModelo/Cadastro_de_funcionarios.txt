@@ -1,0 +1,12 @@
+DEPARTAMENO(codigo,nome)
+	      PK
+FUNCIONARIO(cpf,data_nascimento,matricula,nome)
+                                   PK
+LOTADO(codigo_ocupacao,data_inicio,data_fim,codigo,matricula)
+             PK                               FK      FK
+DEPENDENTE(nome,parentesco,data_nascimento,codigo_dependente,matricula)
+                                                 PK             FK
+CARGO(codigo, cargo)
+        PK
+OCUPA(codigo_ocupacao,data_inicio,data_fim,matricula,código)
+            PK                                FK       FK 

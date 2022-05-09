@@ -23,7 +23,26 @@ h1{color: rgb(255, 78, 80);
     h6{color: rgb(0, 180, 255);
     text-align: center;
     }
-    P{color: rgb(225, 78, 80);
+    P{color: rgb(0, 0, 0);
         font-size: 1.5em;
         text-indent: 1.0em;
         text-align: justify;}
+        img{
+            height: 200px;
+            position:relative;
+            float: left;
+            left: 50%;
+            margin-left: -150px;
+        }
+    table{
+        margin-top: 10px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+    }
+    td{
+        border-style: solid;
+        border-color: rgb(122, 122, 122);
+    }
+    th{
+        background: #5146f1;
+    }

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap');
+
+html{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{color: rgb(255, 78, 80);
+    text-align: center;
+    border-bottom: 1px dashed rgba(0, 0, 255, 0.8);
+    width: 1480px;
+    margin: 50px;
+    padding: 10px;
+    background-color: rgba(249, 212, 35, 0.5);
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    }
+
+P{
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    text-indent: 1.0em;
+    text-align: justify;
+    }
+
+img{
+    height: 200px;
+    position:relative;
+    float: left;
+    left: 50%;
+    margin-left: -150px;
+    }
+       
+form{
+    position: relative ;
+    float: left;
+    background-color: rgba(138,125,0,0.2);
+    border-radius: 10px;
+    width: 600px;
+    padding: 20xp;
+    left: 50%;
+    margin-left: -300px;
+    line-height: 1.0em;
+    }

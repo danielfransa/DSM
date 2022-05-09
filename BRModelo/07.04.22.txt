@@ -1,0 +1,5 @@
+VEICULO(codigo_renavam,chassi,preco)
+
+CARRO(numero_passageiro,velocidade_maxima,numero_portas)
+
+CAMINHAO(capacidade_carga,numero_eixo)

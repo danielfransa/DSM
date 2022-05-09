@@ -1,0 +1,12 @@
+EMPRESA(cnpj,inscricao_estadual,razao_social)
+          PK
+DEPARTRAMENTO(numero_d, nome_d, cnpj)
+                  PK             FK
+FUNCIONARIO(matricula,nome_f,pis,endereco,salario,sexo,data_nascimento,numero_d)
+               PK                                                         FK
+PROJETO(numero_p,descricao,localizacao)
+           PK
+DEPARTAMENTO_PROJETO(numero_d,numero_p)
+                        FK       FK
+PROJETO_FUNCIONARIO(horas,matricula,numero_p)
+                             FK        FK

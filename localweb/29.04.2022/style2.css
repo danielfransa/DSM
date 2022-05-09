@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins&display=swap');
+
+:root{
+    --Amarelo: #EDDE45;
+    --Azul: #0000FF;
+    --Vermelho: #FF0000;
+    --Verde: #00FF00;
+    --Preto: #000000;
+}
+
+html{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header, footer{
+    width: auto;
+    background: rgba(80, 80, 80, 0.5);
+    height: 50px;
+    line-height: 3em;
+}
+
+header{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 110px;
+}
+
+footer{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 110px;
+}
+
+header h1, footer h1{
+    text-align: center;
+    text-shadow: 1px 1px black;
+}
+article{
+    margin-top: 10px;
+    width: 40%;
+    border: 1px dashed red;
+    height: 400px;
+    margin-left: 5%;
+    position: relative;
+    float: left;
+
+}
+
+    .bgAmarelo {background-color: var(--Amarelo);}
+    .bgAzul {background-color: var(--Azul);}
+    .bgVermelho {background-color: var(--Vermelho);}
+    .bgVerde {background-color: var(--Verde);}
+    .bgPreto {background-color: var(--Preto);}
+    .bgCebolinha{background-image: url(./imagem/cebolinha.jpg);}
+
+    .txtBranco {color: #ffffff;}
+    .txtAmarelo {color: var(--Amarelo);}
+    .txtAzul {color: var(--Azul);}
+    .txtVermelho {color: var(--Vermelho);}
+    .txtVerde {color: var(--Verde);}
+    .txtPreto {color: var(--Preto);}
+
+    .borda-0 {border: none;}
+    .borda-1 {border: 1px;}
+    .borda-2 {border: 2px;}
+    .borda-3 {border: 3px;}
+    .borda-r0 {border-radius: 0px;}
+    .borda-r5 {border-radius: 5px;}
+    .borda-r10 {border-radius: 10px;}
+
+    .bordaBranco {border-color: #ffffff;}
+    .bordaAmarelo {border-color: var(--Amarelo);}
+    .bordaAzul {border-color: var(--Azul);}
+    .bordaVermelho {border-color: var(--Vermelho);}
+    .bordaVerde {border-color: var(--Verde);}
+    .bordaPreto {border-color: var(--Preto);}

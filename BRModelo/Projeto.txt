@@ -1,0 +1,10 @@
+FUNCIONARIOS(matricula,nome,pis,endereco,salario,sexo,data_de_nasciemnto,numero_dep)
+                PK                                                           FK
+PROJETOS(numero,localizacao)
+           PK                  
+ATUA(hora,matricula,numero)
+      PK      FK      FK 
+DEPARTAMENTOS(numero_dep,nome)
+                  PK       
+CONTROLA(numero_dep,numero)
+              FK       FK

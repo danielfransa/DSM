@@ -1,0 +1,32 @@
+/* Lógico_taxi: */
+
+CREATE TABLE CLIENTE (
+    ci_id VARCHAR PRIMARY KEY,
+    nome VARCHAR,
+    cpf VARCHAR
+);
+
+CREATE TABLE TAXI (
+    placa VARCHAR PRIMARY KEY,
+    marca VARCHAR,
+    modelo VARCHAR,
+    ano_fab VARCHAR
+);
+
+CREATE TABLE CORRIDA (
+    id_corrida VARCHAR PRIMARY KEY,
+    ci_id VARCHAR,
+    placa VARCHAR,
+    data_pedido VARCHAR,
+    valor VARCHAR
+);
+ 
+ALTER TABLE CORRIDA ADD CONSTRAINT FK_CORRIDA_2
+    FOREIGN KEY (ci_id)
+    REFERENCES CLIENTE (ci_id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE CORRIDA ADD CONSTRAINT FK_CORRIDA_3
+    FOREIGN KEY (placa)
+    REFERENCES TAXI (placa)
+    ON DELETE RESTRICT;

@@ -1,0 +1,29 @@
+h1{color: rgb(255, 78, 80);
+    text-align: center;
+    border-bottom: 1px dashed rgba(0, 0, 255, 0.8);
+    width: 1480px;
+    margin: 50px;
+    padding: 10px;
+    background-color: rgba(249, 212, 35, 0.5);
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    h2{color: rgb(25, 78, 80);
+    text-align: center;
+    }
+    h3{color: rgb(255, 78, 255);
+    text-align: center;
+    }
+    h4{color: rgb(222, 200, 80);
+    text-align: center;
+    }
+    h5{color: rgb(100, 100, 100);
+    text-align: center;
+    }
+    h6{color: rgb(0, 180, 255);
+    text-align: center;
+    }
+    P{color: rgb(225, 78, 80);
+        font-size: 1.5em;
+        text-indent: 1.0em;
+        text-align: justify;}

@@ -1,0 +1,141 @@
+h1 {
+    color: rgb(250, 9, 9);
+    font-size: 80px;
+    text-align: center;
+    width: auto;
+    margin: 50px;
+    padding: 10px;
+    background-color: rgba(249, 212, 35, 0.85);
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+img {
+    width: 350px;
+    height: 350px;
+    display: inline-block;
+    margin-left: 75px;
+
+}
+
+P {
+    color: rgb(0, 0, 0);
+    margin-top: 50px;
+    font-size: 1.0em;
+    text-indent: 1.0em;
+    text-align: center;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.pg1 {
+    background: linear-gradient(rgba(255, 255, 255, .6), rgba(255, 255, 255, .6)), url("../_image/kitanda.png");
+}
+
+.pg2 {
+    background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1)), url("../_image/background_pineapple.png");
+}
+
+.pg3 {
+    background: linear-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2)), url("../_image/legumes.jpg");
+}
+
+.pg4 {
+    background: linear-gradient(rgba(255, 255, 255, .1), rgba(255, 255, 255, .1)), url("../_image/background_salad.jpg");
+}
+
+table {
+    width: 50% !important;
+    /*Importante manter o !important rs */
+    margin: auto;
+    margin-top: 60px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+
+td {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.tb {
+    background: rgb(215, 215, 215);
+}
+
+.tb2 {
+    background: rgb(255, 255, 255);
+}
+
+th {
+    background: rgb(177, 177, 177);
+    font-size: 2.0em;
+    position: center;
+}
+
+.a1 {
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+    text-align: center;
+    width: auto;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.9);
+}
+
+.a2 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-align: center;
+    width: auto;
+    margin: 90px;
+    padding: 40px;
+    background-image: url("../_image/frutas.jpg");
+    opacity: 0.85;
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.9);
+}
+
+.a3 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-align: center;
+    width: auto;
+    margin: 50px;
+    padding: 40px;
+    background-image: url("../_image/legumes.jpg");
+    opacity: 0.85;
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.9);
+}
+
+.a4 {
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    text-align: center;
+    width: auto;
+    margin: 50px;
+    padding: 40px;
+    background-image: url("../_image/verduras.jpg");
+    opacity: 0.85;
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.9);
+}
+
+.d1 {
+    margin-top: 80px;
+    margin-left: 7px;
+    margin-bottom: 80px;
+}
+
+h2 {
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    text-indent: 1.0em;
+    font-size: 2.0em;
+}

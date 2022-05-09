@@ -1,0 +1,8 @@
+PARTICIPANTES(id_participantes,nome,rg,tipo)
+                   PK
+EVENTO(id_evento,titulo,carga_horaria,data,duracao,tipo)
+	   PK
+INSCREVE(id_inscricao,data_inscricao,id_participante,id_evento)
+             PK                            FK            FK
+FREQUENTA(id_frenquecia,data,horario_entrada,horario_saida,id_participante,id_evento)
+               PK                                                 FK           FK

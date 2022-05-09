@@ -1,0 +1,10 @@
+CLIENTE(numero_cliente,nome,endereço)
+              PK
+APOLICE(numero_apolice,valor,numero_cliente)
+              PK                  FK           
+CARRO(registro,marca,numero_apolice)
+         PK               FK
+ACIDENTES(local,hora,data)
+            PK       
+ACID_CARRO(registro,local)
+             FK      FK

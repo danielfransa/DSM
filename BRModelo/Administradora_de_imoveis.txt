@@ -1,0 +1,10 @@
+CONDOMINIO(codigo_cond,nome,endereço)
+              PK
+RESIDENCIAS(numeros,localizacao,medidas,tipo,codigo_cond,codigo_pessoa)
+              PK                               FK             FK
+PESSOA(codigo_pessoa,cpf,rg,nome,telefone,endereco)
+            PK
+RES_PESS(matricula,numero,código_pessoa)
+            PK       FK       FK
+
+
