@@ -1,0 +1,12 @@
+.moveing{
+    background-image: url('./_image/Palito.png');
+    height: 435px;
+    width: 380px;
+    display: block;
+    
+    
+}
+
+.moveing:hover{
+    background-position: -380px;
+}

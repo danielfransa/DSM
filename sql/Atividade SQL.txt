@@ -1,0 +1,82 @@
+
+CREATE DATABASE exportacao;
+______________________________________________________________________________________________________
+
+CREATE TABLE `exportacao`.`pais` (
+    `nome_pais` VARCHAR(30),
+    `pib` DECIMAL(10,3), 
+    PRIMARY KEY (`nome_pais`));
+    
+CREATE TABLE `exportacao`.`mineral` (
+    `nome_mineral` VARCHAR(30), 
+    `valor` DECIMAL(10,3), 
+    PRIMARY KEY (`nome_mineral`));
+    
+CREATE TABLE `exportacao`.`paismineral` (
+    `nome_pais` VARCHAR(30),
+    `nome_mineral` VARCHAR(30),
+    `reserva` DECIMAL(10,0),
+    `producao` DECIMAL(10,3),
+    FOREIGN KEY (`nome_pais`) REFERENCES pais(`nome_pais`),
+    FOREIGN KEY (`nome_mineral`) REFERENCES mineral(`nome_mineral`));
+----------------------------------------------------------------------------------
+
+CREATE TABLE `exportacao`.`paismineral` (
+    `nome_pais` VARCHAR(30),
+    `nome_mineral` VARCHAR(30),
+    `reserva` DECIMAL(10,0),
+    `producao` DECIMAL(10,0));
+
+ALTER TABLE paismineral ADD CONSTRAINT FK_paismineral_1
+    FOREIGN KEY (nome_pais)
+    REFERENCES pais (nome_pais)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE paismineral ADD CONSTRAINT FK_paismineral_2
+    FOREIGN KEY (nome_mineral)
+    REFERENCES mineral (nome_mineral)
+    ON DELETE SET NULL;
+
+_________________________________________________________________________________________
+
+INSERT INTO pais (`nome_pais`, `pib` )
+VALUES ('Brasil', '756.2'), 
+       ('Argentina', '377.5'),
+       ('Chile', '223.7'),
+       ('México', '613.6'),
+       ('Peru', '503.734'),
+       ('EUA', '14300');
+
+INSERT INTO mineral (`nome_mineral`, `valor` )
+VALUES ('Ouro',	'3600'), 
+       ('Prata', '500'), 
+       ('Bronze', '250.35'), 
+       ('Cobre', '12.5'),
+       ('Platina', '159.514') 
+       ('Estanho', '31.53');
+
+INSERT INTO paismineral (`nome_pais`, `nome_mineral`, `reserva`, `producao` )
+VALUES ('EUA', 'Ouro', '1000000', '240'), 
+       ('Peru','Ouro', '500000', '170'),
+       ('Argentina', 'Ouro', '30000', '40'), 
+       ('Brasil', 'Ouro', '20000', '37'), 
+       ('México', 'Prata', '2800000', '2748'), 
+       ('Peru', 'Prata', '2000000', '2200'), 
+       ('Argentina', 'Prata', '450000', '300'), 
+       ('EUA', 'Platina', '1200', '4.39');
+
+_______________________________________________________________________________________________
+
+SELECT `nome_mineral`, `valor` 
+FROM `mineral`
+
+SELECT `nome_pais`, `pib` 
+FROM `pais`
+
+SELECT `nome_pais`, `nome_mineral`, `reserva`, `producao` 
+FROM `paismineral`
+________________________________________________________________________________________________
+
+SELECT `nome_pais`, `nome_mineral`, `reserva`, `producao` 
+FROM `paismineral`
+WHERE nome_pais='Argentina';

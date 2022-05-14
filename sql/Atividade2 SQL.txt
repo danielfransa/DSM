@@ -1,0 +1,23 @@
+CREATE DATABASE danielfranca;
+
+CREATE TABLE `danielfranca`.`cliente` (
+    `id_client` int,
+    `nome` varchar (30),
+    `cpf` int UNIQUE,	 
+    PRIMARY KEY (`id_client`));
+    
+CREATE TABLE `danielfranca`.`taxi` (
+    `placa` varchar(10) NOT NULL, 
+    `marca` varchar(30),
+    `modelo`varchar(30),
+    `ano_fab`int,	 
+    PRIMARY KEY (`placa`));
+    
+CREATE TABLE `danielfranca`.`corrida` (
+    `id_corrida` int AUTO INCREMENT,
+    `id_client` int,
+    `placa` varchar(10),
+    `data_pedido` date,
+    PRIMARY KEY (`id_corrida`),
+    FOREIGN KEY (`id_client`) REFERENCES cliente(`id_client`),
+    FOREIGN KEY (`placa`) REFERENCES taxi(`placa`));
