@@ -1,0 +1,512 @@
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/card_curso.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card:hover > .card-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+    color: black;
+}
+
+p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: 50px;
+    font-size: 1.0em;
+    text-indent: 1.0em;
+}
+a{ 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(27, 27, 180);
+    text-decoration: none;
+    text-align: end;
+
+}
+
+
+.card1 {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/bolo_card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card1-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card1-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card1-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card1-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card1-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card1:hover {
+    filter: unset;
+}
+
+.card1:hover > .card1-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card1:hover > .card1-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+    color: black;
+}
+
+
+.card2 {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/vitrine_card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card2-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card2-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card2-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card2-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card2-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card2:hover {
+    filter: unset;
+}
+
+.card2:hover > .card2-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card2:hover > .card2-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.card3 {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/Origami_card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card3-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card3-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card3-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card3-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card3-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card3:hover {
+    filter: unset;
+}
+
+.card3:hover > .card3-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card3:hover > .card3-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+    color: black;
+}
+
+
+
+.card4 {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/tosa_card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card4-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card4-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card4-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card4-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card4-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card4:hover {
+    filter: unset;
+}
+
+.card4:hover > .card4-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card4:hover > .card4-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+    color: black;
+}
+
+
+
+.card5 {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('../_image/macra_card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 370px 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card5-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(3, 3, 3);
+}
+
+.card5-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card5-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid #ffffff;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card5-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card5-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3;
+}
+
+.card5:hover {
+    filter: unset;
+}
+
+.card5:hover > .card5-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card5:hover > .card5-wrapper p {
+    font-size: 16px;
+    visibility: visible;
+    opacity: 1;
+    color: black;
+}
+
+.format{
+    border: 30px;
+    padding: 70px;
+}
