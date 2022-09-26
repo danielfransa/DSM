@@ -1,0 +1,4 @@
+SELECT a.nome, d.nome 
+FROM alunos AS a, disciplinas AS d, historico AS h
+WHERE a.id = h.idAluno 
+AND h.idDisciplina = d.id

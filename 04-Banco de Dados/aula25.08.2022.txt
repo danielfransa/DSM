@@ -1,0 +1,123 @@
+Aula 25/08/2022
+
+Comandos usados na aula:
+
+CREATE	DATABASE aulajoin;
+
+CREATE TABLE `aulajoin` .`a` (
+	id INT AUTO_INCREMENT,
+	nome VARCHAR(30),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE `aulajoin` .`b` (
+	id INT AUTO_INCREMENT,
+	nome VARCHAR(30),
+	PRIMARY KEY (id)
+);
+
+INSERT INTO a (Nome) VALUES
+	('JOAO'),
+	('RAFAEL'),
+	('PEDRO'),
+	('JUVILENA'),
+	('ROSILDA');
+
+INSERT INTO b (Nome) VALUES
+	('JOAO'),
+	('RAFAEL'),
+	('PEDRO'),
+	('ISAURA'),
+	('ANA');
+ 
+// criação do banco de dados e das tabelas e inserir dados na mesma:
+___________________________________________________________________________
+
+Comandos Join:
+
+//O Inner Join é o método de junção mais conhecido e, retorna os registros 
+//que são comuns às duas tabelas.
+SELECT a.Nome, b.Nome  
+FROM A as A  INNER JOIN B as B
+on a.Nome = b.Nome
+
+//O Left Join, tem como resultado todos os  registros que estão na tabela A 
+//(mesmo que não estejam na tabela B) e os registros da tabela B  que são 
+//comuns à tabela A.
+SELECT a.Nome, b.Nome  
+FROM A as A  LEFT JOIN B as B
+on a.Nome = b.Nome
+
+//Usando o Right Join, teremos como resultado todos os  registros que estão na 
+//tabela B (mesmo que não estejam na tabela A) e os registros da tabela A que 
+//são comuns à tabela B.
+SELECT a.Nome, b.Nome  
+FROM A as A  RIGHT JOIN B as B
+on a.Nome = b.Nome
+
+//O Outer Join (também conhecido por Full Outer Join ou Full Join), tem como 
+//resultado todos os registros que estão na tabela A e todos os registros da 
+//tabela B.
+SELECT a.Nome, b.Nome
+FROM A as A LEFT JOIN  B as b 
+on a.Nome = b.Nome
+UNION
+SELECT a.Nome, b.Nome  
+FROM A as A RIGHT JOIN B as b 
+on a.Nome = b.Nome
+
+//Left Excluding Join retorna como resultado todos os registros que estão na 
+//tabela A e que não estejam na tabela B.
+SELECT a.Nome, b.Nome
+FROM A as A  LEFT JOIN B as B
+on a.Nome = b.Nome  
+WHERE b.Nome is null
+
+//O Right Excluding Join, retorna como resultado todos os registros que estão 
+//na tabela B e que não estejam na tabela A.
+SELECT a.Nome, b.Nome  
+FROM A as A  RIGHT JOIN B as B
+on a.Nome = b.Nome  
+WHERE a.Nome is null
+
+//Usando o Outer Excluding Join, teremos como resultado todos os registros que 
+//estão na tabela B, mas que não estejam na tabela A, e todos os registros que 
+//estão na tabela A, mas que não estejam na tabela B.
+SELECT a.Nome, b.Nome  
+FROM A as A LEFT JOIN B as b 
+on a.Nome = b.Nome  
+WHERE b.Nome is null
+UNION
+SELECT a.Nome, b.Nome
+FROM A as A RIGHT JOIN  B as b 
+on a.Nome = b.Nome  
+WHERE a.Nome is null
+
+________________________________________________________________________________________
+
+SELECT c.nome , r.nome
+FROM cliente c, representante r
+WHERE c.idrepresentante = r.id
+
+
+SELECT *
+FROM pedido	
+ORDER BY `id` DESC
+LIMIT 1 
+
+
+SELECT *
+FROM pedido	
+WHERE id = (SELECT MAX(id) 
+	   FROM pedido )
+
+SELECT *
+FROM pedido
+WHERE datemissao < (SELECT MAX(datemissao)
+		    FROM pedido)
+
+
+SELECT c.id, c.nome, c.telefone
+FROM pedido p, cliente c
+WHERE p.idcliente = c.id AND p.datemissao = (SELECT MIN(datemissao)
+					     FROM pedido)

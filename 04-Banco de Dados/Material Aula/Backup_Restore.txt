@@ -1,0 +1,16 @@
+Backup de uma base de dados com MysqlDump
+
+   mysqldump -u 'root' -p meu_database > meu_database_dump.sql
+
+Restore
+
+   mysql -u root -p meu_database < meu_database_dump.sql
+
+
+Backup de uma tabela
+
+   mysqldump.exe meu_database minha_tabela > meu_database_tabela.sql -u 'root' -p
+
+Restore
+
+   mysql -u root -p meu_database < meu_database_tabela.sql

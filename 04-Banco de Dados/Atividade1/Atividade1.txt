@@ -1,0 +1,51 @@
+Atividade 1 2º Semestre Banco de Dados
+
+Criação tabelas
+CREATE DATABASE atividade1
+
+CREATE TABLE cargos(
+	idCargos INTEGER AUTO_INCREMENT,
+	descricao VARCHAR (60),
+	salario DECIMAL (10,2),
+	PRIMARY KEY (idCargos)
+)
+
+CREATE TABLE funcionario(
+	id INTEGER AUTO_INCREMENT,  
+	idCargos INTEGER,
+	nome VARCHAR (60),
+	PRIMARY KEY (id),
+	FOREIGN KEY (idCargos) REFERENCES cargos (idCargos) ON DELETE CASCADE ON UPDATE CASCADE   
+)
+
+-------------------------------------------------------------------------------------------------
+Incluir dados
+INSERT INTO cargos VALUE (NULL, "Gerente", 10000);
+INSERT INTO cargos VALUE (NULL, "Coordenador", 7000);
+INSERT INTO cargos VALUE (NULL, "Supervisor", 5000);
+INSERT INTO cargos VALUE (NULL, "Analista", 4000);
+INSERT INTO cargos VALUE (NULL, "Operador de Máquina", 3300);
+INSERT INTO cargos VALUE (NULL, "Auxiliar", 2200);
+
+INSERT INTO funcionario VALUE (NULL, 1, "Abrão");
+INSERT INTO funcionario VALUE (NULL, 2, "Marcos");
+INSERT INTO funcionario VALUE (NULL, 3, "José" );
+INSERT INTO funcionario VALUE (NULL, 3, "Maria" );
+INSERT INTO funcionario VALUE (NULL, 4, "Maurício" );
+INSERT INTO funcionario VALUE (NULL, 4, "Joana" );
+INSERT INTO funcionario VALUE (NULL, 5, "Aldo" );
+INSERT INTO funcionario VALUE (NULL, 5, "Marcela" );
+INSERT INTO funcionario VALUE (NULL, 5, "João Kleber" );
+INSERT INTO funcionario VALUE (NULL, 5, "Kleiton" );
+INSERT INTO funcionario VALUE (NULL, 5, "Rita" );
+INSERT INTO funcionario VALUE (NULL, 6, "Daniel" );
+INSERT INTO funcionario VALUE (NULL, 6, "Danil" );
+INSERT INTO funcionario VALUE (NULL, 6, "João Carvalho" );
+INSERT INTO funcionario VALUE (NULL, 6, "Bruna" );
+INSERT INTO funcionario VALUE (NULL, 6, "Carine" );
+INSERT INTO funcionario VALUE (NULL, 6, "Danilo" );
+INSERT INTO funcionario VALUE (NULL, 6, "João Kleber" );
+INSERT INTO funcionario VALUE (NULL, 6, "Danila" );
+INSERT INTO funcionario VALUE (NULL, 6, "Carlos" );
+INSERT INTO funcionario VALUE (NULL, 6, "Josué" );
+
