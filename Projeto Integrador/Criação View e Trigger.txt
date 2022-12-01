@@ -1,0 +1,37 @@
+Criação view dos likes
+
+CREATE OR REPLACE VIEW visao_curtidas
+AS
+SELECT l.id, u.nome, p.tema
+FROM _like l
+INNER JOIN postagem p
+ON l.id_postagem = p.idpostagem
+INNER JOIN usuario u
+ON l.id_usuario = u.id
+
+----------------------------------------------------------------------------
+
+Criação das Triggers
+
+delimiter $$
+CREATE OR REPLACE TRIGGER trg_contar_curtidas
+	AFTER INSERT ON _like
+FOR EACH ROW
+BEGIN 
+	CALL atualiza_curtida(NEW.id_postagem);
+
+END $$
+delimiter ;
+
+delimiter $$
+CREATE OR REPLACE TRIGGER trg_delete_contar_curtidas
+	AFTER DELETE ON _like
+FOR EACH ROW
+BEGIN 
+	CALL atualiza_curtida(OLD.id_postagem);
+
+END $$
+delimiter ;
+
+
+

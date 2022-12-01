@@ -1,0 +1,81 @@
+// Regra de inserir
+CREATE TABLE t1(
+	a INT CHECK(a>2),
+	b INT CHECK(b>2),
+	CONSTRAINT a_maior CHECK(a>b)
+);
+
+INSERT INTO t1 VALUES (4, 3) 
+
+---------------------------------------------------------
+
+//Consrtrução de chaves primária:
+CREATE TABLE PAI(
+	id_Pai INTEGER NOT NULL,
+	Nome_Pai VARCHAR(40) NOT NULL,
+	CONSTRAINT PRK_PAI PRIMARY KEY(id_Pai)
+);
+
+CREATE TABLE FILHO(
+	id INTEGER NOT NULL,
+	id_Pai INTEGER NOT NULL,
+	nome_filho VARCHAR(40) NOT NULL,
+	CONSTRAINT PRK_FILHO PRIMARY KEY(id),
+	CONSTRAINT FRK_FILHO_PAI FOREIGN KEY(id_Pai)
+		REFERENCES pai(id_pai)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+);
+
+---------------------------------------------------------------
+inserindo dados nas tabelas pai e filho
+
+INSERT INTO pai VALUES (1, "maximiliano kolbe");
+INSERT INTO pai VALUES (2, "jose maria escriva");
+INSERT INTO pai VALUES (3, "steve jobs");
+INSERT INTO pai VALUES (4, "blaise pascal");
+
+INSERT INTO filho VALUES (1,1, "mario stravazza");
+INSERT INTO filho VALUES (2,3, "inacio de loyola");
+INSERT INTO filho VALUES (3,2, "marcolino de lima");
+INSERT INTO filho VALUES (4,4, "anastacio mergulhao");
+
+------------------------------------------------------------------
+verificando delete em Cascade
+
+DELETE FROM pai
+WHERE id_Pai = 1
+
+------------------------------------------------------------------
+
+DROP TABLE filho;
+CREATE TABLE FILHO(
+	id INTEGER NOT NULL,
+	id_Pai INTEGER,
+	nome_filho VARCHAR(40) NOT NULL,
+	CONSTRAINT PRK_FILHO PRIMARY KEY(id),
+	CONSTRAINT FRK_FILHO_PAI FOREIGN KEY(id_Pai)
+		REFERENCES pai(id_pai)
+		ON DELETE SET NULL
+		ON UPDATE CASCADE
+);
+
+-------------------------------------------------------------------
+
+UPDATE pai
+SET id_pai = 10
+WHERE id_pai = 3
+
+--------------------------------------------------------------------
+ALTER TABLE pai
+ADD cpf VARCHAR(14) NOT NULL;
+
+---------------------------------------------------------------------
+// campo unico
+
+ALTER TABLE pai
+ADD CONSTRAINT unk_PAI UNIQUE (cpf)
+----------------------------------------------------------------------
+
+https://produto.mercadolivre.com.br/MLB-2661826210-bota-cat-original-100-couro-legitimo-impermeavel-brindes-_JM?attributes=COLOR_SECONDARY_COLOR%3AQ2luemE%3D%2CSIZE%3ANDEgQlI%3D&quantity=1
+

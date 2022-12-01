@@ -1,0 +1,65 @@
+delimiter $$
+
+CREATE OR REPLACE PROCEDURE SP_Atualiza_Estoque(IN idproduto INT, IN qtde FLOAT, IN operacao CHAR(1))
+BEGIN 
+	if operacao = "E" then
+		UPDATE produto
+		SET estoque = estoque + qtde
+		WHERE id = idproduto;
+	ELSEIF operacao = "S" then 
+		UPDATE produto
+		SET estoque = estoque - qtde
+		WHERE id = idproduto;
+	END if;
+END $$
+
+delimiter ;
+
+CALL SP_Atualiza_Estoque(1,1000, "S")
+----------------------------------------------------------------------------------------------------------------
+//criação da Trigger
+delimiter $$
+CREATE OR REPLACE TRIGGER TRG_AFTER_INSERT
+	AFTER INSERT ON item
+FOR EACH ROW
+BEGIN 
+	CALL SP_Atualiza_Estoque(NEW.idproduto,NEW.quantidade, "S");
+
+END $$
+delimiter ; 
+
+
+INSERT INTO item VALUES(10, 1, 1000, 0.30)
+
+--------------------------------------------------------------------------------------------------------------
+delimiter $$
+
+CREATE OR REPLACE PROCEDURE SP_Atualiza_Salario(IN sal DECIMAL, IN nome_cargo VARCHAR(40))
+BEGIN 
+	
+	UPDATE empregado e
+	SET e.salario = sal
+	WHERE e.cargo = nome_cargo ;
+	
+END $$
+
+delimiter ;
+
+
+delimiter $$
+CREATE OR REPLACE TRIGGER TRG_AFTER_UPDATE
+	AFTER UPDATE ON cargo
+FOR EACH ROW
+BEGIN 
+	CALL SP_Atualiza_Salario(NEW.salario, NEW.descricao);
+
+END $$
+delimiter ; 
+
+UPDATE cargo
+SET salario = 10000
+WHERE descricao = "ENGENHEIRO";
+
+---------------------------------------------------------------------------------------------------------
+
+

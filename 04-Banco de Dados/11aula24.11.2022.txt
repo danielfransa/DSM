@@ -1,0 +1,47 @@
+delimiter $$
+CREATE OR REPLACE PROCEDURE SPCURSOR()
+BEGIN
+	DECLARE fim INT DEFAULT FALSE;
+	DECLARE texto VARCHAR(150);
+	DECLARE texto2 VARCHAR(5);
+	
+	-- Definicao do cursor
+ 	DECLARE bloco CURSOR FOR
+ 		SELECT descricao, unidade
+ 		FROM produto;
+
+	-- definição da variável de controle
+	-- looping do cursor
+	DECLARE CONTINUE handler FOR NOT FOUND SET fim = TRUE;
+	
+	CREATE TEMPORARY TABLE teste
+	(
+		descricao VARCHAR(150),
+		unidade VARCHAR(5)
+	);
+	
+	-- abrindo o cursor
+	
+	OPEN bloco;
+	
+	-- looping de execução do cursor
+	read_loop:LOOP
+		FETCH bloco INTO texto, texto2;
+		INSERT INTO teste VALUES (texto, texto2);
+		IF fim THEN
+			LEAVE read_loop;
+		END IF;
+	END LOOP;
+	
+	close bloco;
+	
+	-- Visualizando o conteudo da tabela temporária
+	SELECT * FROM teste;
+	
+	DROP TEMPORARY TABLE teste;
+	
+END $$
+delimiter ;
+
+--------------------------------------------------------------------------------------------
+CALL SPCURSOR

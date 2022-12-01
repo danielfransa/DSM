@@ -1,0 +1,64 @@
+CREATE OR REPLACE VIEW VW_Empregados
+AS
+SELECT e.nome, e.cargo, e.telefone
+FROM empregado e, cargo c
+WHERE c.descricao = e.cargo
+
+/*chamando a VIEW */
+
+SELECT *
+FROM	vw_empregados;
+
+_______________________________________________________________________________________
+
+CREATE OR REPLACE VIEW VW_Clientes
+AS
+SELECT c.id, c.nome, c.telefone, c.idrepresentante
+FROM cliente c
+
+
+/*chamando a VIEW */
+SELECT v.nome, v.telefone, r.nome AS nomerepres 
+FROM vw_clientes v, representante r
+WHERE r.id = v.idrepresentante;
+
+------------------------------------------------------------------------------------------
+CREATE OR REPLACE VIEW VW_Empregados
+AS
+SELECT e.nome, e.cargo, e.telefone, e.salario
+FROM empregado e, cargo c
+WHERE c.descricao = e.cargo
+
+SELECT *
+FROM	vw_empregados;
+
+/* atualizando dados a partir da view */
+UPDATE vw_empregados
+SET salario = salario + 100
+WHERE nome = "Ana Paula"
+
+-------------------------------------------------------------------------------------------
+index
+
+CREATE INDEX numero ON agenda_indexada (numero(4))
+
+SELECT SQL_NO_CACHE *
+FROM agenda
+WHERE ddd = 19 AND numero = 6287
+
+SELECT SQL_NO_CACHE *
+FROM agenda_indexada
+WHERE ddd = 19 AND numero = 6287
+
+---------------------------------------------------------------------------------------------
+CREATE INDEX idx_cliente
+ON cliente(nome, tipo)
+
+
+
+
+
+
+
+
+

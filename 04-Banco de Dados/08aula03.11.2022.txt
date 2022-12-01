@@ -1,0 +1,162 @@
+Função:
+
+delimiter $$
+CREATE OR REPLACE FUNCTION hello(s CHAR(20)) RETURNS CHAR (50)
+BEGIN
+
+	RETURN  CONCAT('Hello, ', s, '!');  
+
+END $$
+delimiter ;
+
+SELECT hello('world');
+____________________________________________________________________________________
+delimiter $$
+
+CREATE OR REPLACE FUNCTION soma(n1 FLOAT, n2 FLOAT)  RETURNS FLOAT 
+BEGIN
+	DECLARE resultado FLOAT;
+	
+	SET resultado = n1 + n2;
+
+	RETURN  resultado;  
+
+END $$
+
+delimiter ;
+
+SELECT soma(10, 5);
+_____________________________________________________________________________________
+delimiter $$
+
+CREATE OR REPLACE FUNCTION maior_salario(ncargo VARCHAR(40))  RETURNS FLOAT 
+BEGIN
+	
+	RETURN  (SELECT MAX(salario)FROM empregado WHERE cargo = ncargo);  
+
+END $$
+
+delimiter ;
+
+SELECT maior_salario('ENGENHEIRO');
+
+________________________________________________________________________________________
+
+delimiter $$
+
+CREATE OR REPLACE FUNCTION calc_icms(icms FLOAT, valor FLOAT)  RETURNS FLOAT 
+BEGIN
+	DECLARE resultado FLOAT;
+	
+	SET resultado = valor * icms / 100;
+	
+	RETURN resultado;	  
+
+END $$
+
+delimiter ;
+
+SELECT calc_icms(18, 1000);
+
+// função dentro de uma função:
+
+delimiter $$
+
+CREATE OR REPLACE FUNCTION calc_nf(idpedido INT)  RETURNS FLOAT 
+BEGIN
+	DECLARE total_pedido FLOAT;
+	DECLARE total_nf FLOAT;
+	DECLARE vl_icms FLOAT;
+	
+	SELECT SUM( i.quantidade * i.precounitario) INTO total_pedido
+	FROM item i
+	WHERE i.idpedido = idpedido;
+	
+	SET vl_icms =  (SELECT calc_icms(18, total_pedido));
+	
+	SET total_nf = total_pedido + vl_icms;
+	
+	RETURN total_nf;	  
+
+END $$
+
+delimiter ;
+
+SELECT calc_nf(1);
+
+________________________________________________________________________________________
+
+delimiter $$
+
+CREATE OR REPLACE FUNCTION hello2(s CHAR(20))  RETURNS CHAR (50) 
+BEGIN
+	DECLARE mensagem VARCHAR(30);
+	SET mensagem = CONCAT('Hello, ', s, '!');
+	if CURTIME() > "18:00:00"
+		then SET mensagem = CONCAT(mensagem, ' Boa Noite ');
+		ELSE SET mensagem = CONCAT(mensagem, ' Bom Dia ');
+	END if;
+	
+	RETURN mensagem;	  
+
+END $$
+
+delimiter ;
+
+SELECT hello2('Daniel');
+
+_________________________________________________________________________________________
+
+CREATE TABLE pedidoparcelas(
+	id INT NOT NULL AUTO_INCREMENT,
+	idpedido INT NOT NULL, 
+	numparcelas INT DEFAULT NULL,
+	dataemissao DATE NOT NULL,
+	datapagto DATE DEFAULT NULL,
+	valorparcela DECIMAL(10,2) NOT NULL,
+	valorpago DECIMAL(10,2) NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(idpedido) REFERENCES pedido(id)
+);
+
+INSERT INTO pedidoparcelas(idpedido, dataemissao, valorparcela, valorpago)
+(SELECT id, CURDATE(), id*100, 0 FROM pedido)
+
+__________________________________________________________________________________________
+delimiter $$
+
+CREATE OR REPLACE FUNCTION media_compra(idpedido int)  RETURNS INT 
+BEGIN
+	DECLARE dias int;
+	 
+	 SET dias = (SELECT DATEDIFF(p.datapagto, p.dataemissao)
+	 FROM pedidoparcelas p
+	 WHERE p.idpedido = idpedido);
+	
+	RETURN dias;	  
+
+END $$
+
+delimiter ;
+
+SELECT media_compra(1)
+
+___________________________________________________________________________________________
+
+delimiter $$
+
+CREATE OR REPLACE FUNCTION diasAtraso(idpedido int)  RETURNS INT 
+BEGIN
+	DECLARE dias int;
+	
+	 SET dias = (SELECT DATEDIFF(CURDATE(), p.dataemissao)
+	 FROM pedidoparcelas p
+	 WHERE p.idpedido = idpedido);
+	
+	RETURN dias;	  
+
+END $$
+
+delimiter ;
+
+SELECT diasAtraso(8)

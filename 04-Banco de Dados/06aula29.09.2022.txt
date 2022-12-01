@@ -1,0 +1,140 @@
+//IN
+delimiter $$
+CREATE PROCEDURE selecionar_produtos(IN qtde INT,
+                                                IN idprod INT)
+BEGIN
+
+	SELECT * FROM produto
+	WHERE id = idprod
+	LIMIT qtde;
+
+END $$
+delimiter ;
+
+CALL selecionar_produtos(3)
+
+delimiter $$
+CREATE or replace PROCEDURE selecionar_produtos(IN qtde INT,
+                                                IN idprod INT)
+BEGIN
+
+	SELECT * FROM produto
+	WHERE id = idprod
+	LIMIT qtde;
+
+END $$
+delimiter ;
+
+//se chamar apenas 1 parametro vai dar erro por que é esperado 2 parametros.
+CALL selecionar_produtos(3, 1)
+----------------------------------------------------------------------------------
+//OUT
+delimiter $$
+CREATE PROCEDURE verifica_quantidade_produto(OUT qtde INT)
+BEGIN
+	SELECT COUNT(*) into qtde FROM produto; // usa-se o into para colocar o count em na "variavel" qtde
+
+END $$
+delimiter ;
+
+CALL verifica_quantidade_produto(@q); //puxa a variavel qtde e "aloca" na variavel @q
+SELECT @q //chama a varivel para ser mostrada.
+-----------------------------------------------------------------------------------
+//INOUT
+delimiter $$
+CREATE PROCEDURE elevar_ao_quadrado(INOUT num INT)
+BEGIN
+	SET num = num * num;
+
+END $$
+delimiter ;
+
+SET @valor = 5; // seta o valor 
+CALL elevar_ao_quadrado(@valor); // chama a procedore
+SELECT @valor; // mostra o valor.
+
+----------------------------------------------------------------------------------------
+//OUT com o Select na procedure
+delimiter $$
+CREATE or replace PROCEDURE verifica_quantidade_produto(OUT qtde INT)
+BEGIN
+	DECLARE identificador INT;
+	DECLARE VPI DECIMAL(5,2) DEFAULT 3.1416;
+ 
+	SELECT id, COUNT(*) into identificador, qtde
+	FROM produto
+	WHERE id = 1
+	GROUP BY id;
+	
+	SELECT identificador;
+	SELECT VPI;
+	
+END $$
+delimiter ;
+
+CALL verifica_quantidade_produto(@q);
+------------------------------------------------------------------------------------------
+// procedure com if
+delimiter $$
+CREATE PROCEDURE lista_clientes(IN opcao INT)
+BEGIN
+	if opcao = 0 then
+		SELECT * FROM cliente WHERE tipo = "F";
+	else
+		if opcao = 1 then
+			SELECT * FROM cliente WHERE tipo ="J";
+		else
+			SELECT * FROM cliente;
+		END if;
+	END if;
+
+END $$	
+delimiter ;
+
+CALL lista_clientes(0);
+----------------------------------------------------------------------------------------
+// procedure com loop
+delimiter $$
+CREATE PROCEDURE acumula(IN limite INT)
+BEGIN
+	DECLARE contador INT DEFAULT 0;
+	DECLARE soma INT DEFAULT 0;
+	
+	meu_loop:LOOP
+		SET contador = contador + 1;
+		SET soma = soma + contador;
+		/* se o contador for maior que o limite
+		 então SAIA do LOOP
+		*/
+		if contador >= limite then
+			leave meu_loop;
+		END if;
+	END loop meu_loop;
+	SELECT soma;
+END $$	
+delimiter ;
+
+CALL acumula(15);
+------------------------------------------------------------------------------------------
+// procedure com while
+delimiter $$
+CREATE PROCEDURE acumula_while(IN limite INT)
+BEGIN
+	DECLARE contador INT DEFAULT 0;
+	DECLARE soma INT DEFAULT 0;
+	
+	while contador < limite do
+		SET contador = contador + 1;
+		SET soma = soma + contador;
+	END while;
+	SELECT soma;
+	
+END $$	
+delimiter ;
+
+CALL acumula_while(15);
+------------------------------------------------------------------------------------------
+
+arma de brinquedo
+https://yitoystore.com/products/winchester-1887-terminator-softbullet-shotgun-toy-gun?currency=USD
+

@@ -1,0 +1,25 @@
+/* Lógico_1: */
+
+CREATE TABLE Usuario (
+    id INTEGER PRIMARY KEY,
+    Nome VARCHAR,
+    Email VARCHAR,
+    Senha VARCHAR
+);
+
+CREATE TABLE Postagem (
+    Id INTEGER PRIMARY KEY,
+    Titulo VARCHAR,
+    Conteudo VARCHAR,
+    Url VARCHAR,
+    Tipo VARCHAR,
+    Id_Usuario INTEGER,
+    Data DATE,
+    Tema VARCHAR,
+    fk_Usuario_id INTEGER
+);
+ 
+ALTER TABLE Postagem ADD CONSTRAINT FK_Postagem_2
+    FOREIGN KEY (fk_Usuario_id)
+    REFERENCES Usuario (id)
+    ON DELETE SET NULL;

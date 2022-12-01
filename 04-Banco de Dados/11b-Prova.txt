@@ -1,0 +1,214 @@
+-- Criação Banco de Dados
+
+CREATE DATABASE avalicacao
+
+-- Criação Tabelas
+
+CREATE TABLE medico (
+	crm CHAR(10) PRIMARY KEY,
+	nome VARCHAR(70),
+	especialidade VARCHAR(90) 
+);
+
+CREATE TABLE paciente (
+	numero int PRIMARY KEY,
+	nome VARCHAR(70),
+	endereco VARCHAR(100) 
+);
+
+CREATE TABLE exame (
+	codigo INT PRIMARY KEY,
+	tipo VARCHAR(50),
+	valor DECIMAL(10,2),
+	numeroPaciente INT,
+	CONSTRAINT FRK_NumPaciente FOREIGN KEY(numeroPaciente)
+		REFERENCES paciente(numero)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE 
+);
+
+CREATE TABLE atendimento (
+	crm CHAR(50),
+	numero INT,
+	CONSTRAINT FRK_CRM FOREIGN KEY(crm)
+		REFERENCES medico(crm)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT FRK_NUMERO FOREIGN KEY(numero)
+		REFERENCES paciente(numero)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE  
+);
+
+-- inserindo Dados
+
+INSERT INTO medico VALUES('10790', 'ADALBERTO DE SOUZA', 'CLINICO GERAL');
+INSERT INTO medico VALUES('10567', 'PABLO PULSO FORTE', 'CARDIOLOGISTA');
+INSERT INTO medico VALUES('10240', 'ANESIO TREVOBOM', 'UROLOGISTA');
+INSERT INTO medico VALUES('00950', 'MELISSA DE PAULA', 'PEDIATRA');
+INSERT INTO medico VALUES('30518', 'MARCIO OSSO TRINCADO', 'ORTOPEDISTA');
+
+INSERT INTO paciente VALUES (1, 'CHICO DEDO RACHADO', 'RUA DAS PEDRAS, 35');
+INSERT INTO paciente VALUES (2, 'NARCISIO DA COSTA', 'RUA DAS AMOREIRAS, 1240');
+INSERT INTO paciente VALUES (3, 'JOAO APARECIDO MARTINS', 'AV CENTRAL, 12');
+INSERT INTO paciente VALUES (4, 'ELISABETH DE SOUZA', 'PRACA DAS NASCENTES, 70');
+INSERT INTO paciente VALUES (5, 'ISADORA OLIVEIRA', 'RUA 15 DE SETEMBRO, 1890');
+
+INSERT INTO ATENDIMENTO VALUES('10790', 1);
+INSERT INTO ATENDIMENTO VALUES('10790', 2);
+INSERT INTO ATENDIMENTO VALUES('10790', 5);
+INSERT INTO ATENDIMENTO VALUES('10567', 3);
+INSERT INTO ATENDIMENTO VALUES('10567', 4);
+INSERT INTO ATENDIMENTO VALUES('10240', 1);
+INSERT INTO ATENDIMENTO VALUES('00950', 5);
+INSERT INTO ATENDIMENTO VALUES('00950', 2);
+INSERT INTO ATENDIMENTO VALUES('30518', 3);
+INSERT INTO ATENDIMENTO VALUES('30518', 4);
+INSERT INTO ATENDIMENTO VALUES('30518', 2);
+
+INSERT INTO exame VALUES(1, 'GLICEMIA', 100.0, 1);
+INSERT INTO exame VALUES(2, 'HEMOGRAMA', 100.0, 1);
+INSERT INTO exame VALUES(3, 'HEMOGRAMA', 100.0, 2);
+INSERT INTO exame VALUES(4, 'ULTRASSOM', 350.0, 2);
+INSERT INTO exame VALUES(5, 'URINA I', 50.0, 3);
+INSERT INTO exame VALUES(6, 'CARDIOGRAMA', 350.0, 3);
+INSERT INTO exame VALUES(7, 'ESTEIRA', 250.0, 4);
+INSERT INTO exame VALUES(8, 'RAIO X', 150.0, 2);
+INSERT INTO exame VALUES(9, 'AMEBA', 80.0, 5);
+INSERT INTO exame VALUES(10, 'TOMOGRAFIA', 650.0, 5);
+INSERT INTO exame VALUES(11, 'PSA', 100.0, 1);
+
+-- Questão 2 Criar usuário e permissões na base de dados:
+
+CREATE USER 'josemaria'@'localhost' IDENTIFIED BY '1234'
+
+GRANT ALL ON avaliacao.* TO 'josemaria'@'localhost'
+
+-- Questão 3 view dos atendimento realizados
+
+CREATE OR REPLACE VIEW VW_Atendimentos
+AS
+SELECT m.nome AS NomeMedico, m.especialidade AS Especialidade, p.nome AS NomePaciente
+FROM atendimento a
+INNER JOIN medico m
+ON a.crm = m.crm
+INNER JOIN paciente p
+ON a.numero = p.numero
+
+-- Questão 4 função valor gastos com exames de um determinado paciente
+
+delimiter $$
+
+CREATE OR REPLACE FUNCTION Valor_Gasto_Exames(numero int)  RETURNS DECIMAL
+BEGIN
+
+	RETURN (SELECT SUM(valor)
+				FROM exame e
+				INNER JOIN paciente p
+				ON e.numeroPaciente = p.numero
+				WHERE p.numero = numero);
+				
+END $$
+
+delimiter ;
+
+-- Questão 5 Procedure que mostra os pacientes que realizaram exame
+
+delimiter $$
+CREATE OR REPLACE PROCEDURE Pacientes_Exames()
+BEGIN 
+
+	SELECT p.nome AS NomePaciente, e.tipo AS Exame
+	FROM exame e
+	INNER JOIN paciente p
+	ON e.numeroPaciente = p.numero;
+
+END $$
+
+delimiter ;
+
+CALL Pacientes_Exames();
+
+-- Questão 6 Procedure que mostra o médico e todos os pacientes atendidos por ele, procedure com parametro de entrada para filtrar médico.
+
+delimiter $$
+CREATE OR REPLACE PROCEDURE Medico_Atendimento(IN Cod_crm INT)
+BEGIN 
+	SELECT m.nome AS NomeMedico, p.nome AS NomePaciente
+	FROM atendimento a
+	INNER JOIN medico m
+	ON a.crm = m.crm
+	INNER JOIN paciente p
+	ON a.numero = p.numero
+	WHERE m.crm = Cod_crm;
+
+END $$
+
+delimiter ;
+
+CALL Medico_Atendimento(30518);
+
+-- Questão 7 Criar um indice de coluna única na tabela Paciente, usando a coluna Nome.
+
+CREATE UNIQUE INDEX nome_paciente ON paciente(nome);
+
+-- Questão 8 Criar um cursor que manipule os dados de médicos e pacientes atendidos, isira os dados em uma tabela temporária e exiba os dados e abague a tabela temporária.
+
+delimiter $$
+CREATE OR REPLACE PROCEDURE SP_Cursor()
+BEGIN
+	DECLARE fim INT DEFAULT FALSE;
+	DECLARE NomeMedico VARCHAR(70);
+	DECLARE Especialidade VARCHAR(90);
+	DECLARE NomePaciente VARCHAR(70);
+	
+	-- Definicao do cursor
+ 	DECLARE bloco CURSOR FOR
+ 		SELECT m.nome, m.especialidade, p.nome
+		FROM atendimento a
+		INNER JOIN medico m
+		ON a.crm = m.crm
+		INNER JOIN paciente p
+		ON a.numero = p.numero;
+
+	-- definição da variável de controle
+	-- looping do cursor
+	DECLARE CONTINUE handler FOR NOT FOUND SET fim = TRUE;
+	
+	CREATE TEMPORARY TABLE teste
+	(
+		nome_medico VARCHAR(70),
+		especialidade VARCHAR(90),
+		nome_paciente VARCHAR(70)
+	);
+	
+	-- abrindo o cursor
+	
+	OPEN bloco;
+	
+	-- looping de execução do cursor
+	read_loop:LOOP
+		FETCH bloco INTO NomeMedico, Especialidade, NomePaciente ;
+		INSERT INTO teste VALUES (NomeMedico, Especialidade, NomePaciente);
+		IF fim THEN
+			LEAVE read_loop;
+		END IF;
+	END LOOP;
+	
+	close bloco;
+	
+	-- Visualizando o conteudo da tabela temporária
+	SELECT * FROM teste;
+	
+	DROP TEMPORARY TABLE teste;
+	
+END $$
+delimiter ;
+
+CALL SP_Cursor;
+
+
+
+
+
+

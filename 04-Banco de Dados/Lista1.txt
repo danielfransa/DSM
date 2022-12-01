@@ -1,0 +1,110 @@
+
+Exercício 1
+delimiter $$
+CREATE PROCEDURE Quantidade_Vendida()
+BEGIN 
+
+	SELECT p.id, p.descricao, SUM(i.quantidade)
+	FROM item i, produto p
+	WHERE i.idproduto = p.id
+	GROUP BY p.id;
+
+END $$
+delimiter ;
+
+Exercício 2
+delimiter $$
+CREATE PROCEDURE Vendas_Por_Pedido()
+BEGIN 
+
+	SELECT p.id, c.nome, (SELECT SUM(i.quantidade*i.precounitario) /*esse select pega o valor vendido de cada id*/
+									FROM item i
+									WHERE i.idpedido = p.id ) AS Valor
+ 	
+	FROM pedido p, cliente c
+	WHERE p.idcliente = c.id;
+
+END $$
+delimiter ;
+
+
+Exercício 3
+delimiter $$
+CREATE OR REPLACE PROCEDURE Vendas_Por_Ano_Mes(IN mes int, IN ano int)
+BEGIN 
+
+	SELECT p.id, c.nome, p.datemissao, (SELECT SUM(i.quantidade*i.precounitario) /*esse select pega o valor vendido de cada id*/
+													FROM item i
+													WHERE i.idpedido = p.id ) AS Valor
+ 	
+	FROM pedido p, cliente c
+	WHERE p.idcliente = c.id AND YEAR(datemissao) = ano AND MONTH(datemissao) = mes;
+	
+END $$
+delimiter ;
+
+
+Exercício 4
+delimiter $$
+CREATE OR REPLACE PROCEDURE atualizar_precodecompra(IN porct int)
+BEGIN 
+		DECLARE contador INT DEFAULT 0;
+
+	loop1:LOOP
+			SET contador = contador +1;
+			
+					UPDATE produto
+					SET precodecompra = ((SELECT precodecompra FROM produto WHERE id = contador )+(SELECT precodecompra FROM produto WHERE id = contador)*(porct/100))
+					WHERE id = contador;
+					
+				if contador >= (SELECT COUNT(precodecompra)FROM produto) then 
+								leave loop1;
+				END if;
+			END loop loop1;
+				
+END $$
+delimiter ;
+
+
+Exercício 5
+delimiter $$
+CREATE OR REPLACE PROCEDURE Comissao_Representante(IN com INT, IN mes int, IN ano int )
+BEGIN
+	
+	SELECT e.nome, SUM((SELECT SUM(i.quantidade*i.precounitario) /*esse select pega o valor vendido de cada id*/
+													FROM item i
+													WHERE i.idpedido = p.id )) AS Valor , (SUM((SELECT SUM(i.quantidade*i.precounitario) 
+													FROM item i
+													WHERE i.idpedido = p.id )) * (com/100)) AS Comissao 
+													
+						FROM pedido p, cliente c, empregado e
+						WHERE p.idcliente = c.id AND c.idrepresentante = e.id AND YEAR(datemissao) = ano AND MONTH(datemissao) = mes
+						GROUP BY e.nome;
+
+END $$
+delimiter ;
+
+Exercício 6
+delimiter $$
+CREATE OR REPLACE PROCEDURE atualizar_estoque()
+BEGIN 
+		DECLARE contador INT DEFAULT 0;
+
+	loop2:LOOP
+			SET contador = contador +1;
+			
+				UPDATE produto
+				SET estoque = (SELECT estoque FROM produto WHERE id = contador) - (SELECT (SELECT SUM(i.quantidade)
+																							FROM item i
+																							WHERE i.idproduto = p.id) AS qtde
+																				FROM produto p
+																				WHERE p.id = contador)
+				WHERE id = contador;
+					
+				if contador >= (SELECT COUNT(estoque)FROM produto) then 
+													leave loop2;
+				END if;
+			END loop loop2;
+				
+END $$
+delimiter ;
