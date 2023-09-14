@@ -1,0 +1,6 @@
+System.out.println("Passou pelo PalavraController");
+        List<Palavra> palavras = service.obterTodas();
+        palavras.forEach(p -> {
+            System.out.println("Palavra: "+p.getPalavra());
+            System.out.println("Significado: "+p.getSignificado());
+            System.out.println("\n---------------------------\n");

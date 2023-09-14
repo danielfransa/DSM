@@ -1,0 +1,59 @@
+conjunto1 = set(range(1, 15))
+conjunto2 = set(range(10, 20))
+conjunto3 = set(range(14, 25))
+
+print(conjunto1)
+
+print(conjunto2)
+
+print(conjunto3)
+
+print(conjunto1.difference(conjunto2))
+
+print(conjunto1.intersection(conjunto2))
+
+print(conjunto1.symmetric_difference(conjunto2))
+
+# remo
+lista_repetida = list(range(1, 10))
+lista_repetida += list(range(1, 10))
+lista_repetida += list(range(1, 10))
+
+print(lista_repetida)
+
+lista_repetida = list(set(lista_repetida))
+
+print(lista_repetida)
+
+# Dicionario
+
+agenda = {}
+type(agenda)
+agenda['orlando'] = ['Eng. Sof1', 'Des. Web2', 'Des. Wed3']
+agenda['nilton'] = ['Algoritmo']
+agenda['jose'] = '199999-9999'
+agenda['maria'] = '1988888888'
+agenda['joaquin'] = ('1988888888', 'Rua 10, 1')
+
+print(agenda)
+
+print(agenda['orlando'])
+print(agenda['orlando'][1])
+print(agenda['joaquin'])
+print(agenda['joaquin'][1])
+
+# Tratamento de Erro dicionario
+try:
+    print(agenda['Orlando'])
+except KeyError:
+    print('Não Encontrado')
+
+print(agenda.get('orlando', 'Não encontrado'))
+print(agenda.get('Orlando', 'Não encontrado'))
+
+print(agenda.keys())
+
+for chave in agenda.keys():
+    print('Chave => ' + chave)
+    print(agenda[chave])
+    print('')

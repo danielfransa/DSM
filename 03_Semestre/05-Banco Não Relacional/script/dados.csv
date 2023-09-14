@@ -1,0 +1,199 @@
+cod_venda,data_venda,cod_client,nome_cliente,cod_produto,descricao,nome,categoria,marcas,valor,qtd
+457534,2020-12-09,9047,Ana Ferreira,55504,Perfeito para uso diário,Coca-Cola Muito bom,Alimentos,LG,52.89,"1
+"
+507586,2022-04-20,1071,Luís Pereira,84816,Perfeito para uso diário,Nestle Durável e resistente,Roupas,Coca-Cola,509.6,"9
+"
+441629,2022-03-31,5890,Mariana Ferreira,69673,Muito bom,Nestle Muito bom,Alimentos,LG,110.45,"4
+"
+921982,2022-08-09,4737,Luís Santos,34363,Durável e resistente,Coca-Cola Excelente produto,Alimentos,Nestle,209.64,"6
+"
+276666,2022-12-08,109,Gustavo Souza,15959,Muito bom,Nike Muito bom,Alimentos,Samsung,747.89,"10
+"
+791067,2020-08-09,6449,Maria Silva,74930,Muito bom,Nestle Muito bom,Eletrônicos,Nike,167.73,"10
+"
+911994,2020-01-02,7813,Pedro Pereira,10193,Qualidade superior,Adidas Qualidade superior,Roupas,Puma,261.83,"7
+"
+591112,2021-02-01,3023,João Silva,90973,Perfeito para uso diário,LG Excelente produto,Livros,Samsung,868.39,"6
+"
+593206,2022-07-19,5822,Ana Silva,72403,Qualidade superior,Apple Muito bom,Brinquedos,LG,820.01,"4
+"
+474370,2021-10-03,3470,Pedro Silva,9636,Durável e resistente,Nestle Excelente produto,Alimentos,Adidas,190.01,"10
+"
+66440,2020-11-18,413,Luís Pereira,54141,Perfeito para uso diário,LG Perfeito para uso diário,Roupas,Samsung,678.05,"10
+"
+894454,2020-04-18,5432,Gustavo Ferreira,99756,Durável e resistente,LG Qualidade superior,Alimentos,Coca-Cola,240.22,"8
+"
+14453,2020-08-15,3060,Gustavo Silva,11190,Durável e resistente,Puma Muito bom,Livros,Adidas,922.64,"10
+"
+929441,2020-06-05,7877,Gustavo Souza,9976,Muito bom,Adidas Muito bom,Eletrônicos,Puma,452.71,"10
+"
+941205,2021-01-10,2693,Maria Oliveira,88995,Excelente produto,Coca-Cola Excelente produto,Roupas,Apple,520.85,"9
+"
+36440,2022-09-25,64,João Silva,70266,Excelente produto,Adidas Qualidade superior,Alimentos,Nike,596.77,"6
+"
+790910,2023-03-26,4323,Maria Santos,9640,Excelente produto,Apple Muito bom,Livros,Samsung,77.89,"1
+"
+693594,2023-01-16,536,Luís Pereira,91887,Excelente produto,Nike Muito bom,Brinquedos,LG,1.38,"6
+"
+897778,2022-11-21,7597,Luís Souza,20332,Muito bom,Puma Perfeito para uso diário,Eletrônicos,Nike,323.22,"8
+"
+721083,2020-10-27,7970,Pedro Pereira,65832,Durável e resistente,Adidas Durável e resistente,Roupas,Nestle,799.24,"9
+"
+949015,2022-07-14,7708,Ana Oliveira,13336,Perfeito para uso diário,Puma Muito bom,Roupas,LG,503.96,"1
+"
+151498,2023-01-12,5565,João Silva,47596,Qualidade superior,Adidas Excelente produto,Alimentos,Puma,270.55,"6
+"
+559846,2021-07-08,3533,Carla Ferreira,57831,Perfeito para uso diário,Puma Durável e resistente,Brinquedos,Nestle,603.61,"5
+"
+226527,2020-07-07,4459,Carla Oliveira,79420,Excelente produto,Nestle Excelente produto,Alimentos,Puma,614.21,"8
+"
+833066,2021-08-26,4239,Ana Santos,20040,Perfeito para uso diário,Adidas Qualidade superior,Alimentos,Puma,403.57,"8
+"
+557461,2022-03-05,9040,Ana Souza,90113,Excelente produto,LG Qualidade superior,Livros,Adidas,862.2,"2
+"
+874753,2020-12-22,2040,Carla Santos,49025,Muito bom,LG Muito bom,Roupas,Adidas,342.78,"3
+"
+524204,2021-10-05,9849,Ana Souza,89550,Muito bom,Nike Durável e resistente,Roupas,Nestle,929.47,"10
+"
+697486,2022-08-31,4952,Ana Pereira,28889,Qualidade superior,Nike Durável e resistente,Brinquedos,Adidas,382.41,"8
+"
+747487,2022-09-11,5728,Gustavo Oliveira,50590,Muito bom,Puma Excelente produto,Eletrônicos,LG,369.06,"4
+"
+351819,2022-04-13,5235,Gustavo Santos,73044,Qualidade superior,Coca-Cola Excelente produto,Livros,Coca-Cola,483.02,"1
+"
+235211,2022-08-31,9293,Mariana Almeida,88881,Excelente produto,Coca-Cola Muito bom,Brinquedos,Nike,640.05,"2
+"
+492341,2020-06-20,1078,Pedro Almeida,19363,Durável e resistente,Nike Durável e resistente,Roupas,Adidas,611.43,"7
+"
+110174,2020-09-27,662,Gustavo Almeida,71562,Durável e resistente,LG Excelente produto,Eletrônicos,Nestle,759.74,"8
+"
+325142,2021-01-25,5065,Carla Ferreira,63560,Muito bom,Puma Muito bom,Roupas,Coca-Cola,332.14,"2
+"
+735972,2020-05-15,6461,Maria Santos,63648,Perfeito para uso diário,Nike Durável e resistente,Alimentos,Samsung,147.66,"7
+"
+541436,2022-09-28,5284,Carla Almeida,59430,Perfeito para uso diário,Nike Muito bom,Roupas,Apple,24.55,"2
+"
+826671,2021-10-02,8859,Luís Oliveira,98086,Durável e resistente,Nike Perfeito para uso diário,Brinquedos,Nestle,767.85,"10
+"
+957825,2021-04-08,426,Gustavo Ferreira,75508,Excelente produto,Nestle Muito bom,Livros,Coca-Cola,975.26,"8
+"
+143421,2021-08-03,4830,João Oliveira,49974,Muito bom,Puma Perfeito para uso diário,Brinquedos,Coca-Cola,692.88,"8
+"
+695823,2020-05-04,2474,Ana Ferreira,99372,Perfeito para uso diário,Coca-Cola Qualidade superior,Livros,Apple,888.38,"8
+"
+531053,2020-08-10,349,Carla Silva,49150,Durável e resistente,Nike Excelente produto,Brinquedos,LG,748.37,"5
+"
+975777,2021-05-19,8662,Ana Pereira,36708,Qualidade superior,Coca-Cola Durável e resistente,Livros,Nestle,752.77,"8
+"
+27099,2022-05-28,3527,Gustavo Santos,16188,Perfeito para uso diário,Nike Muito bom,Livros,Samsung,541.12,"4
+"
+552249,2022-09-12,5103,Maria Oliveira,65639,Perfeito para uso diário,Puma Excelente produto,Brinquedos,Nestle,383.51,"9
+"
+205846,2021-02-06,3937,Gustavo Almeida,82768,Qualidade superior,Puma Qualidade superior,Brinquedos,Nike,793.25,"3
+"
+502108,2023-03-05,5479,Gustavo Ferreira,62414,Muito bom,Puma Qualidade superior,Alimentos,Nestle,621.97,"9
+"
+83007,2022-08-06,501,Carla Pereira,57345,Muito bom,Nestle Durável e resistente,Alimentos,LG,582.09,"4
+"
+742153,2022-12-22,1949,Mariana Ferreira,84016,Durável e resistente,Adidas Excelente produto,Roupas,Puma,442.85,"9
+"
+282924,2021-06-22,3325,Mariana Oliveira,35970,Muito bom,Coca-Cola Durável e resistente,Roupas,Nestle,825.33,"7
+"
+795137,2020-01-04,6695,Carla Ferreira,19677,Perfeito para uso diário,LG Perfeito para uso diário,Brinquedos,Apple,259.6,"7
+"
+848033,2020-02-08,65,João Santos,78962,Muito bom,Apple Durável e resistente,Livros,LG,368.32,"9
+"
+511462,2023-01-19,9585,Mariana Souza,74876,Qualidade superior,Coca-Cola Perfeito para uso diário,Eletrônicos,Adidas,271.76,"6
+"
+365313,2022-11-10,4255,Mariana Souza,68241,Durável e resistente,LG Muito bom,Brinquedos,Adidas,570.25,"3
+"
+435433,2021-10-17,10,Ana Souza,34625,Perfeito para uso diário,Samsung Excelente produto,Alimentos,LG,123.97,"10
+"
+143499,2023-02-21,2269,Pedro Almeida,815,Muito bom,Adidas Durável e resistente,Roupas,Nestle,537.07,"4
+"
+286921,2022-04-11,1203,Gustavo Souza,13612,Durável e resistente,Nestle Qualidade superior,Livros,Nike,388.94,"9
+"
+617069,2022-12-17,341,Maria Pereira,64736,Excelente produto,Coca-Cola Qualidade superior,Alimentos,Samsung,922.79,"4
+"
+522777,2021-08-23,547,Pedro Santos,56857,Durável e resistente,Nike Durável e resistente,Livros,Puma,792.87,"6
+"
+965705,2021-04-10,4070,Pedro Souza,14197,Perfeito para uso diário,Adidas Durável e resistente,Eletrônicos,Apple,327.1,"5
+"
+544907,2022-02-15,7397,Maria Santos,92641,Perfeito para uso diário,Coca-Cola Qualidade superior,Livros,Apple,812.92,"3
+"
+120883,2022-09-24,158,Gustavo Silva,6519,Qualidade superior,Coca-Cola Muito bom,Eletrônicos,Coca-Cola,384.16,"6
+"
+20577,2021-01-05,2014,Carla Souza,36571,Perfeito para uso diário,Coca-Cola Excelente produto,Eletrônicos,Apple,504.18,"6
+"
+822688,2021-07-12,7213,Gustavo Souza,63153,Perfeito para uso diário,Puma Perfeito para uso diário,Livros,Nestle,71.72,"6
+"
+225209,2021-11-15,2870,Gustavo Silva,16830,Qualidade superior,Puma Muito bom,Livros,Apple,284.58,"10
+"
+487856,2020-10-13,3063,Carla Pereira,44552,Perfeito para uso diário,LG Durável e resistente,Brinquedos,Coca-Cola,615.59,"3
+"
+259099,2021-04-13,1496,Carla Silva,56646,Durável e resistente,Apple Qualidade superior,Alimentos,Coca-Cola,587.91,"4
+"
+674129,2020-10-19,4150,Luís Oliveira,49543,Perfeito para uso diário,Adidas Perfeito para uso diário,Brinquedos,LG,884.25,"2
+"
+646297,2020-10-03,8549,Ana Pereira,36851,Excelente produto,Puma Durável e resistente,Livros,Samsung,471.77,"6
+"
+655266,2020-01-06,5782,Luís Oliveira,78468,Excelente produto,Nike Excelente produto,Eletrônicos,Puma,675.89,"7
+"
+7729,2021-03-08,4788,Carla Souza,69354,Qualidade superior,Puma Qualidade superior,Roupas,Coca-Cola,375.48,"9
+"
+858676,2023-02-15,4808,João Almeida,69277,Durável e resistente,Adidas Qualidade superior,Eletrônicos,Nestle,233.85,"5
+"
+262903,2022-03-25,101,Carla Souza,92526,Durável e resistente,Puma Excelente produto,Alimentos,Adidas,832.53,"4
+"
+182400,2020-09-14,9310,Luís Santos,86177,Perfeito para uso diário,Coca-Cola Muito bom,Brinquedos,Nike,283.89,"5
+"
+895333,2022-10-22,9463,João Silva,82961,Muito bom,LG Excelente produto,Eletrônicos,Samsung,124.36,"3
+"
+14810,2021-07-31,2035,Pedro Almeida,85657,Excelente produto,Nestle Excelente produto,Alimentos,LG,503.21,"6
+"
+784529,2021-10-14,5235,Pedro Silva,44637,Qualidade superior,Adidas Durável e resistente,Alimentos,Samsung,20.13,"9
+"
+995848,2020-01-14,7805,Mariana Almeida,2581,Muito bom,Nestle Excelente produto,Alimentos,Nestle,701.45,"10
+"
+346332,2020-10-27,4776,João Santos,99217,Perfeito para uso diário,Nestle Durável e resistente,Livros,Apple,191.64,"8
+"
+40753,2020-10-27,1602,Gustavo Souza,89343,Excelente produto,Coca-Cola Muito bom,Brinquedos,Coca-Cola,55.56,"8
+"
+571917,2020-11-22,1402,Gustavo Oliveira,35970,Perfeito para uso diário,Coca-Cola Durável e resistente,Eletrônicos,Adidas,590.62,"6
+"
+652549,2021-02-13,7664,Maria Souza,90609,Perfeito para uso diário,Coca-Cola Durável e resistente,Roupas,Apple,555.13,"7
+"
+806370,2020-06-06,64,Mariana Ferreira,21899,Perfeito para uso diário,Nike Muito bom,Eletrônicos,Puma,8.1,"5
+"
+617559,2020-07-29,1695,Carla Pereira,98097,Qualidade superior,Coca-Cola Durável e resistente,Eletrônicos,Nike,863.85,"1
+"
+768863,2020-05-14,4908,Mariana Almeida,2861,Qualidade superior,Puma Qualidade superior,Eletrônicos,LG,9.9,"4
+"
+193937,2021-04-14,8010,Mariana Pereira,609,Qualidade superior,Adidas Excelente produto,Livros,Samsung,195.85,"6
+"
+433783,2020-06-09,8362,João Ferreira,77359,Durável e resistente,LG Durável e resistente,Brinquedos,LG,923.94,"10
+"
+550558,2020-10-31,9411,Mariana Ferreira,61644,Perfeito para uso diário,Apple Muito bom,Alimentos,Apple,686.08,"7
+"
+187018,2023-03-09,6231,Carla Santos,3322,Qualidade superior,Coca-Cola Perfeito para uso diário,Brinquedos,Puma,695.77,"9
+"
+219672,2023-02-11,8206,Ana Pereira,77487,Muito bom,Samsung Durável e resistente,Eletrônicos,Nike,991.18,"10
+"
+960866,2022-03-02,9291,Maria Almeida,80668,Perfeito para uso diário,LG Qualidade superior,Alimentos,Adidas,540.89,"5
+"
+511359,2021-07-26,4901,Gustavo Souza,66040,Durável e resistente,LG Qualidade superior,Roupas,Puma,871.62,"3
+"
+139879,2022-06-01,4920,Ana Pereira,60014,Durável e resistente,Samsung Muito bom,Roupas,Nike,934.35,"6
+"
+112207,2021-02-03,2400,Luís Almeida,7153,Qualidade superior,Puma Qualidade superior,Alimentos,Nestle,279.52,"3
+"
+658127,2020-08-23,3798,João Pereira,48852,Qualidade superior,Nike Perfeito para uso diário,Alimentos,LG,45.93,"2
+"
+510303,2021-11-18,4389,Mariana Ferreira,9269,Excelente produto,LG Qualidade superior,Brinquedos,Coca-Cola,531.92,"1
+"
+348328,2020-01-25,8090,João Ferreira,50519,Excelente produto,Adidas Durável e resistente,Alimentos,LG,570.47,"4
+"
+54345,2021-02-17,7312,Pedro Ferreira,71477,Perfeito para uso diário,Samsung Muito bom,Roupas,Nike,892.3,"1
+"
+391989,2022-06-14,4488,João Silva,31530,Durável e resistente,Puma Perfeito para uso diário,Brinquedos,Nestle,3.44,"10
+"

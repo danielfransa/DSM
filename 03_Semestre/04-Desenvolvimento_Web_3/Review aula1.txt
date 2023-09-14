@@ -1,0 +1,39 @@
+# Seleção
+condicao = False
+if condicao:
+    print('Passou por aqui 1')
+condicao = True
+if condicao:
+    print('Passou por aqui 2')
+    
+lista = list(range(1,10))
+for numero in lista:
+    print(numero)
+    
+def caixinha_magica(numero1, numero2):
+    numero3 = numero1 + numero2
+    return numero3
+
+
+print(caixinha_magica(2, 5))
+
+assert caixinha_magica(10, 4) == 14
+print(caixinha_magica(10, 4))
+
+
+tupla = ('teste', 'teste1', 'teste2')
+print(id(tupla))
+print(tupla)
+
+lista1 = list(tupla)
+
+print(lista1)
+
+lista1.append('mudar_tupla')
+
+print(lista1)
+
+print(id(tupla))
+tupla = tuple(lista1)
+
+print(tupla)

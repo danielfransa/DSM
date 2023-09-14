@@ -1,0 +1,73 @@
+db.vendas.updateOne(
+    {"cod_venda":"20478"},
+    [
+        {
+            $set: {
+                cod_cliente : {
+                $toInt: '$COD_CLIENTE',
+                },
+            },
+        },
+    ],
+);
+
+cria um campo novo cod_cliente e passa os dados do antigo campo COD_CLIENTE para toInt 
+
+
+---------------------------------------------------------------------------
+
+db.vendas.aggregate([
+    {
+        $group: {
+            _id: "$cod_produto",
+            qtd_vendas: { $sum: 1},
+            total_vendas: { $sum: "$qtd"},
+        }
+    }
+]);
+
+_id é um apelido para o campo cod_produto
+qtd_vendas - esta somando 1 em cada venda que aparece
+total_vendas: é a soma do campo qtd.
+
+----------------------------------------------------------------------------------
+
+db.vendas.aggregate([
+    {
+        $group: {
+            _id: "$COD_CLIENTE",
+            total_vendas: { $sum: { $multiply: ["$valor", "$qtd"]}},
+        }
+    }
+]);
+
+agrega todos os códigos de clientes e nutiplica o valor pela quantidade de venda
+
+db.vendas.aggregate([
+	{$match: {"valor": {$ne:NaN}}},
+    {
+        $group: {
+            _id: "$COD_CLIENTE",
+            total_vendas: { $sum: { $multiply: ["$valor", "$qtd"]}},
+        }
+    }
+]);
+
+no caso como alguns valores subiram para o banco como NaN não conseguiram calcular
+nesse caso fazemos um match para retirar todos os valores com NaN
+
+------------------------------------------------------------------------------------- 
+
+
+$eq - igual
+$gt - maior que
+$gte – maior ou igual a
+$in – no intervalo
+$lt – menor que
+$lte – menor ou igual a
+$ne – não igual (diferente)
+$nin – não contido (não esteja no intervalo)
+
+------------------------------------------------------------------------
+
+db.vendas.distinct("valor").forEach((value) =>{print(value) })

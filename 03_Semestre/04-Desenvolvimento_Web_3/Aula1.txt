@@ -1,0 +1,107 @@
+
+#declaração de variavel
+a = 3
+
+#exemplo de if e else
+if a > 5:
+    print('Maior que 5')
+else:
+    print('Menor que 5')
+
+#exemplo de for
+frutas = ["maçã", "banana", "laranja", "manga"]
+
+for fruta in frutas:
+    print(fruta)
+
+#exemplo de while
+numero = 0
+while numero < 5:
+    print(numero)
+    numero += 1
+
+#exemplo de função
+def saudacao(nome):
+    """Função que imprime uma saudação ao usuário."""
+    print(f"Olá, {nome}! Tudo bem?")
+
+# Chama a função saudacao
+saudacao("João")
+
+def caixinha_magica(numero1, numero2):
+    numero_magico = numero1 + numero2
+    return numero_magico
+
+print(caixinha_magica(2, 7))
+print(caixinha_magica('oi ', 'mundo'))
+
+#exemplo de assert
+assert caixinha_magica(2, 2) == 4
+assert caixinha_magica('oi ', 'mundo') == 'oi mundo'
+
+print('Primerio experimento com TDD')
+
+def caixinha_magica2(parametro1, parametro2):
+    result = parametro1 - parametro2
+    return result
+
+assert caixinha_magica2(10, 4) == 6
+assert caixinha_magica2(10, 5) == 5
+
+# String
+nome = 'Fatec Araras'
+print(nome)
+print(id(nome))
+nome = 'Fatec Araras 2'
+print(nome)
+print(id(nome))
+print(nome.upper())
+
+# Lista
+lista = []
+lista.append('Pão')
+lista.append('Queijo')
+lista.append('Bacon')
+lista.append('Chocolate')
+lista.append('Chocolate')
+
+for comida in lista:
+    print(comida)
+
+# Tupla
+tuple = ('Pão', 'Queijo', 'Leite', 'Chocolate')
+
+for comida in tuple:
+    print(comida)
+
+# Range
+r = range(1, 15)
+print(list(r))
+
+r = range(1, 15, 2)
+print(list(r))
+
+
+_________________________________________________________________
+
+# desafio TDD
+
+print('---- Desafio TDD ----')
+
+def caixinha_magica3(parametro1, parametro2):
+    result = parametro1 - parametro2
+    if result < 0:
+        result = 0
+    return result
+
+assert caixinha_magica3(20, 15) == 5
+print(caixinha_magica3(20, 15))
+assert caixinha_magica3(20, 10) == 10
+print(caixinha_magica3(20, 10))
+assert caixinha_magica3(10, 10) == 0
+print(caixinha_magica3(10, 10))
+assert caixinha_magica3(10, 15) == 0
+print(caixinha_magica3(10, 15))
+assert caixinha_magica3(30, 45) == 0
+print(caixinha_magica3(30, 45))
+

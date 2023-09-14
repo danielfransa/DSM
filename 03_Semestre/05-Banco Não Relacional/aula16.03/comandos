@@ -1,0 +1,153 @@
+
+
+// insert simples
+
+
+//inserir um ID
+"_id":{
+	 "$oid":"64012ca4dcb8cd766e61e23c"
+	},
+
+db.vendas.insertOne(
+{
+	"cod_venda":"12637",
+	"DATA_VENDA":"09/03/2069",
+	"COD_CLIENTE":"46",
+	"NOME_CLIENTE":"Natália da Rocha",
+	"cod_produto": "269",
+	"DESCRICAO":"Cabo de força para fonte - 70CM",
+	"nome":"Cabo de força para fonte - 70cm",
+	"categoria":"Cabo de Energia",
+	"MARCAS":"ORIGINAL BRAND",
+	"valor": 2,
+	"qtd": 3
+}
+)
+
+db.vendas.insertOne(
+{
+	"cod_venda":"12637",
+	"DATA_VENDA":"16/03/2023",
+	"COD_CLIENTE":"99",
+	"NOME_CLIENTE":"João da Silva",
+	"cod_produto": "269",
+	"DESCRICAO":"Mouse de computador com fio e saída USB",
+	"nome":"Mouse USB",
+	"categoria":"Acessórios",
+	"MARCAS":"Multilaser",
+	"valor": 10,
+	"qtd": 1
+}
+)
+
+
+//Inserir muitos dados juntos
+
+db.vendas.insertMany(
+	[
+		{
+			"cod_venda": "12637",
+			"DATA_VENDA": "09/03/2069",
+			"COD_CLIENTE": "46",
+			"NOME_CLIENTE": "Natlia da Rocha",
+			"cod_produto": "269",
+			"DESCRICAO": "Cabo de fora para fonte - 70CM",
+			"Nome": "Cabo de fora para fonte - 70CM",
+			"Categoria": "Cabo de Energia",
+			"MARCAS": "ORIGINAL BRAND",
+			"valor": 2,
+			"qtd": 3
+		},
+		{
+			"cod_venda": "1740",
+			"DATA_VENDA": "08/07/2009",
+			"COD_CLIENTE": "4121",
+			"NOME_CLIENTE": "Dra. Yasmin da Cunha",
+			"cod_produto": "1189",
+			"DESCRICAO": "Fonte de Alimentao Cooler Master MWE V2 650W ATX / No Modular / 80 Plus Gold - MPE-6501-ACAAG-U2",
+			"Nome": "NULL",
+			"Categoria": "NULL",
+			"MARCAS": "NULL",
+			"valor": {
+			"$numberDouble": "NaN"
+			},
+			"qtd": 3
+		}
+	]
+)
+
+
+
+// Busca de elementos
+
+db.vendas.find({"MARCAS":"Multilaser"})
+
+
+//Nesse casso ele suprime o ID e não trás na consulta e mostra apenas os campos
+//"cod_venda" e "NOME_CLIENTE"
+
+db.vendas.find(
+{},
+{"_id":0,"cod_venda":1,"NOME_CLIENTE":1}
+)
+
+// Nesse caso ele vai suprimir o Id e trazer os campos "cod_venda" e "NOME_CLIENTE"
+porem apenas onde o "cod_venda" for iqual a 12367
+
+db.vendas.find(
+{"cod_venda":"12367"},
+{"_id":0,"cod_venda":1,"NOME_CLIENTE":1}
+)
+
+// Nesse caso ele vai suprimir o Id e trazer os campos "cod_venda" e "NOME_CLIENTE"
+porem apenas onde o "cod_venda" for iqual a 12367 porem que tem a quantidade entre 
+1 e 2 devido ao $in.
+
+db.vendas.find(
+{"cod_venda":"12367","qtd":{$in:[1,2]}},
+{"_id":0,"cod_venda":1,"NOME_CLIENTE":1,"qtd":1}
+)
+
+// Nesse caso ele vai suprimir o Id e trazer os campos "cod_venda" e "NOME_CLIENTE"
+porem apenas onde o "cod_venda" for iqual a 12367 porem que tem a quantidade fora de 
+1 e 2 devido ao $nin.
+
+db.vendas.find(
+{"cod_venda":"12367","qtd":{$nin:[1,2]}},
+{"_id":0,"cod_venda":1,"NOME_CLIENTE":1,"qtd":1}
+)
+
+
+//Atualiza um documento
+o primeiro documento que ele encontrar com o "cod_venda":"12367"
+ele vai mudar "qtd" para 88
+
+db.vendas.updateOne(
+{"cod_venda":"12367"}
+,
+{
+$set: { "qtd": 88}
+}
+)
+
+// o unset dropa a coluna do documento
+
+db.vendas.updateOne(
+	{"cod_venda":"12367"}
+	,
+	{
+	$unset: { "qtd": 88}
+	}
+)
+
+// Faz o update e o upsert insere uma coluna status
+
+db.vendas.updateMany(
+{"cod_venda":"12367"}
+, {
+$set: { "status": "entregue"}
+}
+,
+{upsert:true}
+)
+

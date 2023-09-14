@@ -1,0 +1,188 @@
+Aula06/04/2023
+
+
+comando para mudar todos os dados que estavam como NaN no campo valor
+
+db.minha_colecao.updateMany(
+  { meu_campo: { $eq: NaN, $exists: true } },
+  { $set: { meu_campo: 0 } }
+);
+
+
+---------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no
+MongoDB para calcular o total de vendas na
+coleção "vendas", considerando o campo "valor"
+em cada documento.
+db.vendas.aggregate([
+{
+$group: {
+_id: null,
+total_vendas: { $sum: "$valor" }
+}
+}
+])
+
+-------------------------------------------------------------------------------
+
+- Escreva uma consulta de agregação no
+MongoDB para contar o número de vendas na
+coleção "vendas" agrupadas por categoria.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$Categoria",
+total_vendas: { $sum: 1 }
+}
+}
+])
+
+-----------------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no
+MongoDB para calcular o valor médio de vendas na
+coleção "vendas" agrupadas por marca.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$MARCAS",
+valor_medio: { $avg: "$valor" }
+}
+}
+])
+
+------------------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no
+MongoDB para calcular o total de produtos
+vendidos na coleção "vendas" agrupadas por
+código do cliente
+db.vendas.aggregate([
+{
+$group: {
+_id: "$COD_CLIENTE",
+total_produtos: { $sum: "$qtd" }
+}
+}
+])
+
+----------------------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no MongoDB
+para identificar o produto mais vendido na coleção
+"vendas", com base no campo "QTD" em cada
+documento.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$cod_produto",
+total_vendas: { $sum: "$qtd" }
+}
+},
+{
+$sort: { total_vendas: -1 }
+},
+{
+$limit: 1
+}
+])
+
+------------------------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no
+MongoDB para calcular o total de vendas na
+coleção "vendas" agrupadas por data de venda.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$DATA_VENDA",
+total_vendas: { $sum: "$valor" }
+}
+}
+])
+
+-------------------------------------------------------------------------------------------
+
+- Escreva uma consulta de agregação no
+MongoDB para calcular o total de produtos
+vendidos na coleção "vendas" agrupadas por
+código do cliente e ordene os resultados em ordem
+decrescente do total de produtos vendidos.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$COD_CLIENTE",
+total_produtos: { $sum: "$QTD" }
+}
+},
+{
+$sort: { total_produtos: -1 }
+}
+])
+
+-------------------------------------------------------------------------------------------
+
+Escreva uma consulta de agregação no
+MongoDB para calcular o valor médio de vendas na
+coleção "vendas" agrupadas por código do cliente.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$COD_CLIENTE",
+valor_medio: { $avg: "$valor" }
+}
+}
+])
+
+-------------------------------------------------------------------------------------------
+
+- Escreva uma consulta de agregação no
+MongoDB para contar o número de vendas na
+coleção "vendas" agrupadas por descrição do
+produto.
+db.vendas.aggregate([
+{
+$group: {
+_id: "$DESCRICAO",
+total_vendas: { $sum: 1 }
+}
+}
+])
+
+-------------------------------------------------------------------------------------------
+Escreva uma consulta de agregação no MongoDB
+para obter o total de produtos vendidos agrupados por
+descrição e categoria na coleção "vendas".
+db.vendas.aggregate([
+{
+$group: {
+_id: { descricao: "$DESCRICAO", categoria:
+"$Categoria" },
+total_produtos: { $sum: "$QTD" }
+}
+}
+])
+
+-------------------------------------------------------------------------------------------
+
+separa por Descrição, soma todas as quantidades, soma todos os valores, mutiplica a quantidade
+de cada documento pelo seu valor e soma todos os documentos.
+
+db.vendas.aggregate([
+{
+$group: {
+_id: "$DESCRICAO",
+total_qtd: { $sum: "$QTD" },
+total_valor: { $sum: "$valor" },
+total_multiplicacao: {
+$sum: {
+$multiply: ["$QTD", "$valor"]
+}
+}
+}
+}
+])
+
+
+

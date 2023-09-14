@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css_card_instituicao/style.css' %}">
+  <title>Instituições</title>
+</head>
+
+<body>
+  {% include "./header.html" %}
+  <div class="conteudo">
+    <h1>INSTITUIÇÕES</h1>
+    <br>
+    <div class="conteudo-card">
+      <form action="{% url 'instituicoes' %}" method="POST">{% csrf_token %}
+        {% for dado in dados %}
+        <div class="card" id="{{ dado.id }}" lat="{{ dado.latitude }}" lon="{{ dado.longitude }}">
+          
+            <h3 class="card-titulo">{{ dado.nome_instituicao }}</h3>
+          
+          <img src="{% static 'assets/instituicao.jpg' %}" alt="Foto da Instituição">
+          <div >
+            <p class="frase">Juntos podemos fazer a diferença! Ajude a combater a fome e o desperdício de alimentos doando para nossa
+                instituição. Cada doação conta e pode mudar a vida de alguém.
+            </p>
+          </div>
+          <a type="button" onclick="verMapa({{ dado.id }})">Ver Mapa</a>
+        </div>
+      </form>
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+  {% include "./footer.html" %}
+{% block javascript %}
+<script>
+  function verMapa(id) {
+    var card = document.getElementById(id);
+    var lat = card.getAttribute("lat");
+    var lon = card.getAttribute("lon");
+    var url = "{% url 'card-map' %}?latitude=" + lat + "&longitude=" + lon;
+    window.location.href = url;
+  }
+  </script>
+ 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var titulos = document.getElementsByClassName('card-titulo');
+      for (var i = 0; i < titulos.length; i++) {
+        while (titulos[i].scrollWidth > titulos[i].offsetWidth) {
+          var fontSize = parseFloat(window.getComputedStyle(titulos[i]).fontSize);
+          titulos[i].style.fontSize = (fontSize - 1) + 'px';
+        }
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var frases = document.getElementsByClassName('frase');
+      for (var i = 0; i < frases.length; i++) {
+        while (frases[i].scrollHeight > 130) {
+          var fontSize = parseFloat(window.getComputedStyle(frases[i]).fontSize);
+          fontSize -= 1;
+          frases[i].style.fontSize = fontSize + 'px';
+        }
+      }
+    });
+  </script>
+
+{% endblock %}  
+</body>
+
+
+{% comment %} <script>
+  $(document).ready(function() {
+  $('.frase').each(function() {
+    while (this.scrollHeight > $(this).height()) {
+      $(this).css('font-size', (parseInt($(this).css('font-size')) - 1) + 'px');
+    }
+  });
+});
+</script> {% endcomment %}
+
+</html>

@@ -1,0 +1,25 @@
+Para o projeto funcionar é necessário Possuir MongoDB e Python instalados
+
+Instalação MongoDB para Linux no link abaixo:
+https://www.vultr.com/docs/install-and-configure-mongodb-database-server-on-ubuntu-20-04
+
+Para utilizar o serviço de MongoDB(linux):
+
+1º Executar o seguinte comando para iniciar:
+	sudo systemctl start mongod
+	
+
+IMPORTANTE: 
+
+Executar o comando: virtualenv venv
+OBS: se não tiver virtualenv baixado é só dar pip install virtualenv
+Para criar a virtualvenv executar: virtualenv venv(executar no mesmo diretório do projeto)
+
+Ativando a venv no Windows - cd venv\Scripts -> depois executar activate.bat
+Ativando a venv no Linux - source venv\bin\activate
+
+Com a venv ativa, executar o comando pip install -r requirements.txt após clonar o projeto pela primeira vez, ele vai instalar todas as dependências e libs utilizadas no projeto.
+
+Iniciando projeto: va até o local do arquivo manage.py(com a virtualenv ativa) e execute:
+	python manage.py migrate (cria as collections no banco de dados MongoDB)
+	python manage.py runserver (inicializa o servidor próprio do Django pra visualizar o site)
